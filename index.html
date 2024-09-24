@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Your existing styles */
+        .navbar {
+            background-color: #6024a0;
+        }
+        .nav-link {
+            color: white;
+        }
+        .nav-items {
+            justify-content: right;
+        }
+        .right-cards {
+            width: 100%;
+            padding: 15px;
+            position: relative;
+        }
+        .card-link {
+            display: block;
+            color: #000;
+            text-decoration: none;
+        }
+        .feed-section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .activity-feed {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .leaderboard {
+            float: right;
+            width: 18rem;
+        }
+        .left-sidebar {
+            background-color: #f8f9fa;
+            height: 100vh;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: flex-start;
+        }
+        .left-sidebar a {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 18px;
+            text-decoration: none;
+            color: black;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .left-sidebar a:hover {
+            background-color: #6024a0;
+            color: white;
+        }
+        .left-sidebar a.active {
+            background-color: #6024a0;
+            color: white;
+        }
+        .right-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .d-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .profile-pic {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="/nav.png" alt="NCR VOYIX"  height="25">
+            </a>
+            <div class="nav-items">
+              <form class="d-flex" role="search" action="/profile 3.html">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+              </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 left-sidebar">
+                <a href="/profile 2 .html" class="active">My Profile</a>
+                <a href="#" >Activity</a>
+                <a href="#">Events</a>
+                <a href="#">Leaderboard</a>
+                
+            </div>
+
+            <div class="col-md-6 feed-section">
+                <div class="activity-feed">
+                    <h5>Who do you want to recognize?</h5>
+                    <input type="text" class="form-control" placeholder="Type a name...">
+                    <hr>
+                    <div class="post" id="post-1">
+                        <img class="profile-pic me-3" src="vishesh.jpg">
+                        <h6><strong>Vishesh</strong> was recognized for: <span class="badge bg-secondary">RESPECT</span></h6>
+                        <p>Thanks, Vishesh, for volunteering to be part of the pilot program on behalf of EMP!</p>
+                        <div class="d-flex justify-content-between">
+                            <span id="vishesh-points-display"><strong>Points: </strong><span id="vishesh-points">5</span></span>
+                            <button class="btn btn-outline-primary btn-sm" onclick="askPoints('Vishesh')">Give Points</button>
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" class="form-control" id="comment-vishesh" placeholder="Write a comment...">
+                            <button class="btn btn-outline-secondary btn-sm mt-2" onclick="addComment('vishesh-comments', 'comment-vishesh')">Post Comment</button>
+                        </div>
+                        <div id="vishesh-comments" class="mt-3"></div>
+                    </div>
+                    <hr>
+                    <div class="post" id="post-2">
+                        <img class="profile-pic me-3" src="Pooja.JPG">
+                        <h6><strong>Pooja </strong> was recognized for: <span class="badge bg-secondary">RESPECT</span></h6>
+                        <p>Thanks, Pooja, for volunteering to be part of the pilot program on behalf of EMP!</p>
+                        <div class="d-flex justify-content-between">
+                            <span id="pooja-points-display"><strong>Points: </strong><span id="pooja-points">5</span></span>
+                            <button class="btn btn-outline-primary btn-sm" onclick="askPoints('Pooja')">Give Points</button>
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" class="form-control" id="comment-pooja" placeholder="Write a comment...">
+                            <button class="btn btn-outline-secondary btn-sm mt-2" onclick="addComment('pooja-comments', 'comment-pooja')">Post Comment</button>
+                        </div>
+                        <div id="pooja-comments" class="mt-3"></div>
+                    </div>
+                    <hr>
+                    <div class="post" id="post-3">
+                        <img class="profile-pic me-3" src="himanshu.jpg">
+                        <h6><strong>Himanshu</strong> was recognized for: <span class="badge bg-secondary">RESPECT</span></h6>
+                        <p>Thanks, Himanshu for taking part in hackathon</p>
+                        <div class="d-flex justify-content-between">
+                            <span id="Himanshu-points-display"><strong>Points: </strong><span id="Himanshu-points">7</span></span>
+                            <button class="btn btn-outline-primary btn-sm" onclick="askPoints('Himanshu')">Give Points</button>
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" class="form-control" id="comment-Himanshu" placeholder="Write a comment...">
+                            <button class="btn btn-outline-secondary btn-sm mt-2" onclick="addComment('Himanshu-comments', 'comment-Himanshu')">Post Comment</button>
+                        </div>
+                        <div id="Himanshu-comments" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 right-sidebar">
+                <div class="right-cards">
+                    <a href="/profile 2 .html" class="card-link">
+                        <div class="card text-white" style="background-color: #6024a0; width: 18rem; margin-bottom: 30px;">
+                            <div class="card-body d-flex align-items-center">
+                                <img src="/image (1).jpg" alt="Monika" class="profile-pic me-3">
+                                <div>
+                                    <h5 class="card-title">Monika Singh</h5>
+                                    <h6 class="card-subtitle mb-2">HR Specialist</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/addnewpoints.html" class="card-link">
+                        <div class="card " style="width: 18rem; margin-bottom: 30px;">
+                            <div class="card-body">
+                                <h3 class="card-title" id="points-to-give">101</h3>
+                                <h6 class="card-subtitle mb-2 text-muted">Your Points</h6>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="card-link">
+                        <div class="card " style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Leaderboard</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">See top scorers</h6>
+                                <hr>
+                                <div id="leaderboard">
+                                    <!-- Leaderboard will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load current points from localStorage (if available)
+        let userPoints = localStorage.getItem('userPoints') ? parseInt(localStorage.getItem('userPoints')) : 56;
+        let pointsToGive = localStorage.getItem('pointsToGive') ? parseInt(localStorage.getItem('pointsToGive')) : 101;
+
+        // document.getElementById('user-points').innerText = userPoints;
+        document.getElementById('points-to-give').innerText = pointsToGive;
+       
+        // Candidate points
+        let candidates = [
+            { name: 'Vishesh', points: 5 },
+            { name: 'Pooja', points: 5 },
+            { name: 'Himanshu', points: 7}
+     
+            
+        ];
+
+        // Function to update the leaderboard
+        function updateLeaderboard() {
+            // Sort candidates based on points
+            candidates.sort((a, b) => b.points - a.points);
+
+            // Display sorted candidates
+            const leaderboard = document.getElementById('leaderboard');
+            leaderboard.innerHTML = ''; // Clear previous entries
+            candidates.forEach(candidate => {
+                const candidateDiv = document.createElement('h6');
+                candidateDiv.innerText =   `${candidate.name} - Points: ${candidate.points}`;
+                leaderboard.appendChild(candidateDiv);
+                leaderboard.appendChild(document.createElement('hr'));
+            });
+        }
+
+        // Call updateLeaderboard initially to populate the leaderboard
+        updateLeaderboard();
+
+        // Prompt user to input how many points to give
+        function askPoints(name) {
+            if (pointsToGive > 0) {
+                let points = prompt(`How many points do you want to give to ${name}?`);
+                points = parseInt(points);
+
+                if (points > 0 && points <= pointsToGive) {
+                    pointsToGive -= points;
+
+                    // Update points based on the name
+                    candidates.forEach(candidate => {
+                        if (candidate.name === name) {
+                            candidate.points += points;
+                        }
+                    });
+
+                    // Update the points display
+                    updatePointsDisplay();
+                    document.getElementById('points-to-give').innerText = pointsToGive;
+                    localStorage.setItem('pointsToGive', pointsToGive);
+
+                    // Update the leaderboard after giving points
+                    updateLeaderboard();
+                } else {
+                    alert("Not enough points to give or invalid input.");
+                }
+            } else {
+                alert("You have no points left to give.");
+            }
+        }
+
+        function updatePointsDisplay() {
+            document.getElementById('vishesh-points').innerText = candidates.find(c => c.name === 'Vishesh').points;
+            document.getElementById('pooja-points').innerText = candidates.find(c => c.name === 'Pooja').points;
+            document.getElementById('Himanshu-points').innerText = candidates.find(c => c.name === 'Himanshu').points;
+
+        }
+
+        // Add comment functionality
+        function addComment(commentSectionId, inputId) {
+            const comment = document.getElementById(inputId).value;
+            if (comment) {
+                const commentDiv = document.createElement('div');
+                commentDiv.innerText = comment;
+                document.getElementById(commentSectionId).appendChild(commentDiv);
+                document.getElementById(inputId).value = ''; // Clear input field
+            } else {
+                alert('Please enter a comment.');
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
